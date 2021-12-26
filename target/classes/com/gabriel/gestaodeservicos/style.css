@@ -1,0 +1,32 @@
+#myPane {
+    -fx-background-radius: 10;
+    -fx-background-color: "#FFF";
+    -fx-border-radius: 10;
+}
+.text-field, #passField {
+    -fx-background-color: "#e6e6e6";
+    -fx-background-radius: 50;
+    -fx-font-size: 15;
+    -fx-prompt-text-fill: "#666666";
+    -fx-text-fill: "#666666";
+    -fx-padding: 0px 0px 0px 50px;
+    -fx-font-weight: 500;
+}
+.text-field:focused, #passField:focused {
+    -fx-border-color: "#57b846";
+    -fx-border-radius: 50;
+}
+#myBtn {
+   -fx-background-color: "#57b846";
+   -fx-background-radius: 50;
+   -fx-text-fill: "#FFF";
+   -fx-font-size: 15;
+   -fx-font-weight: 700;
+}
+#myBtn:hover {
+    -fx-background-color: "#FFF";
+    -fx-text-fill: "#57b846";
+    -fx-border-color: "#57b846";
+    -fx-border-radius: 50;
+    -fx-cursor: hand;
+}
