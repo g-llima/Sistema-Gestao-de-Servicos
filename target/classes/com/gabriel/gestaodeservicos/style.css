@@ -1,6 +1,7 @@
 #myPane {
     -fx-background-radius: 10;
     -fx-background-color: "#FFF";
+    -fx-border-color: "BLACK";
     -fx-border-radius: 10;
 }
 .text-field, #passField {
