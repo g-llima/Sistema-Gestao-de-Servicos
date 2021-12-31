@@ -14,8 +14,7 @@ public class ModuloConexao {
 
         try {
             Class.forName(driver);
-            Connection conexao = DriverManager.getConnection(url, user, password);
-            return conexao;
+            return DriverManager.getConnection(url, user, password);
         } catch (Exception e) {
             return null;
         }

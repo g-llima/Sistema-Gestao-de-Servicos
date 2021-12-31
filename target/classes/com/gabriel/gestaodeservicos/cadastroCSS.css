@@ -1,0 +1,25 @@
+.text-field {
+    -fx-background-color: transparent;
+    -fx-prompt-text-fill: "#ededed";
+    -fx-text-fill: "#ededed";
+    -fx-border-radius: 20;
+    -fx-border-color: "#ededed";
+}
+.text-field:focused {
+
+    -fx-background-color: WHITE;
+    -fx-text-fill: "#36cda0";
+    -fx-border-color: BLACK;
+    -fx-prompt-text-fill: "#36cda0";
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+
+}
+#checkFieldFunc .box{
+    -fx-background-color: TRANSPARENT;
+    -fx-border-color: WHITE;
+    -fx-border-radius: 5px;
+}
+#checkFieldFunc:selected .mark {
+    -fx-background-color: white;
+}

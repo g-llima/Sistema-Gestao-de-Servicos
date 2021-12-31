@@ -17,6 +17,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -37,7 +38,7 @@ public class TelaLogin implements Initializable {
     @FXML
     private PasswordField passField;
     @FXML
-    private Button myBtn;
+    private Button myBtn, minimizeBtn;
     @FXML
     private Circle c1, c2, c3;
     @FXML
@@ -46,6 +47,13 @@ public class TelaLogin implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        //MINIMIZAR APP
+        minimizeBtn.setOnMouseClicked( event -> {
+            Stage obj = (Stage) minimizeBtn.getScene().getWindow();
+            obj.setIconified(true);
+        });
+
 
         //LOGAR AO CLICAR NO "ENTER"
         userTextField.setOnKeyPressed(k -> {
@@ -99,6 +107,8 @@ public class TelaLogin implements Initializable {
     private Stage stage;
     private Scene scene;
 
+    double xOffset = 0;
+    double yOffset = 0;
 
     public void logar(ActionEvent e) {
 
@@ -110,17 +120,40 @@ public class TelaLogin implements Initializable {
             user = "'" + user + "'";
             pass = "'" + pass + "'";
 
-            String sql = "SELECT * FROM dbinfox.tbfuncionarios WHERE BINARY Login = " + user + " AND Senha = "+ pass;
+
+            String sql = "SELECT * FROM dbinfox.tbfuncionarios WHERE BINARY Login = " + user + " AND Senha = " + pass;
             pst = conexao.prepareStatement(sql);
             rs = pst.executeQuery();
 
             if (rs.next()) {
-                loginFail.setOpacity(0);
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("telaprincipal.fxml")));
-                stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-                scene = new Scene(root);
+                String username = rs.getString(2);
+                String aUsername = username;
+                if (username.equals("admin")) {
+                    username = "Administrador";
+                }
 
-                stage.setTitle("Dev the Devs - Gabriel de Lima da Silva");
+                loginFail.setOpacity(0);
+                Parent root;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("telafuncoes.fxml"));
+                root = loader.load();
+
+                TelaFuncoesController scene2Controller = loader.getController();
+                scene2Controller.displayName(username); //Insere o nome do usuário na proxima tela
+
+                stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                scene.setFill(Color.TRANSPARENT);
+
+                root.setOnMousePressed(mouseEvent -> { //Arrastar o aplicativo com o mouse
+                    xOffset = mouseEvent.getSceneX();
+                    yOffset = mouseEvent.getSceneY();
+                });
+                root.setOnMouseDragged(mouseEvent -> {
+                    stage.setX(mouseEvent.getScreenX() - xOffset);
+                    stage.setY(mouseEvent.getScreenY() - yOffset);
+                });
+
+
                 stage.setScene(scene);
                 stage.show();
                 conexao.close();

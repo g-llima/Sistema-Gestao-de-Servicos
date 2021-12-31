@@ -14,11 +14,11 @@
     -fx-font-weight: 500;
 }
 .text-field:focused, #passField:focused {
-    -fx-border-color: "#57b846";
+    -fx-border-color: "#36cda0";
     -fx-border-radius: 50;
 }
 #myBtn {
-   -fx-background-color: "#57b846";
+   -fx-background-color: "#36cda0";
    -fx-background-radius: 50;
    -fx-text-fill: "#FFF";
    -fx-font-size: 15;
@@ -26,8 +26,8 @@
 }
 #myBtn:hover {
     -fx-background-color: "#FFF";
-    -fx-text-fill: "#57b846";
-    -fx-border-color: "#57b846";
+    -fx-text-fill: "#36cda0";
+    -fx-border-color: "#36cda0";
     -fx-border-radius: 50;
     -fx-cursor: hand;
 }

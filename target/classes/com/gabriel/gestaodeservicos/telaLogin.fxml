@@ -10,6 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="myPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gabriel.gestaodeservicos.TelaLogin">
@@ -32,24 +33,33 @@
          </font></Button>
       <FontAwesomeIcon fill="#666666" glyphName="USER" layoutX="552.0" layoutY="293.0" size="16" />
       <FontAwesomeIcon fill="#666666" glyphName="LOCK" layoutX="552.0" layoutY="352.0" size="16" />
-      <Button layoutX="906.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefWidth="30.0" style="-fx-background-color: TRANSPARENT;">
-         <graphic>
-            <FontAwesomeIcon fill="#666666" glyphName="TIMES" size="30">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></FontAwesomeIcon>
-         </graphic>
+      <Button layoutX="898.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefWidth="30.0" style="-fx-background-color: TRANSPARENT;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@closeIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
-      <Circle fx:id="c1" fill="#1fff41" layoutX="51.0" layoutY="39.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fx:id="c2" fill="#1fff41" layoutX="87.0" layoutY="39.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fx:id="c3" fill="#1fff41" layoutX="123.0" layoutY="39.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fx:id="c1" fill="#36cda0" layoutX="51.0" layoutY="39.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fx:id="c2" fill="#36cda0" layoutX="87.0" layoutY="39.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fx:id="c3" fill="#36cda0" layoutX="123.0" layoutY="39.0" radius="13.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Label fx:id="loginFail" alignment="CENTER" layoutX="533.0" layoutY="213.0" opacity="0.0" prefHeight="35.0" prefWidth="290.0" style="-fx-background-color: #f5426c; -fx-background-radius: 50;" text="Usuário ou senha invalido" textFill="WHITE">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>
       </Label>
+      <Button fx:id="minimizeBtn" layoutX="854.0" layoutY="22.0" mnemonicParsing="false" prefWidth="30.0" style="-fx-background-color: TRANSPARENT;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <Rectangle arcHeight="0.5" arcWidth="5.0" fill="#666666" height="2.0" stroke="TRANSPARENT" strokeType="OUTSIDE" width="20.0" />
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
