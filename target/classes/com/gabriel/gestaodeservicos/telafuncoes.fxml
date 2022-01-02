@@ -29,7 +29,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="relatBtn" mnemonicParsing="false" style="-fx-background-color: TRANSPARENT;">
+            <Button fx:id="relatBtn" mnemonicParsing="false" onAction="#irParaRelatorio" style="-fx-background-color: TRANSPARENT;">
                <graphic>
                   <ImageView fitHeight="120.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -71,7 +71,7 @@
             <Font name="Calibri" size="25.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="418.0" layoutY="430.0" prefHeight="30.0" prefWidth="115.0" text="Relatório" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="382.0" layoutY="430.0" prefHeight="30.0" prefWidth="194.0" text="Ordens de Serviços" textFill="WHITE">
          <font>
             <Font name="Calibri" size="25.0" />
          </font>
@@ -101,7 +101,7 @@
             <Rectangle arcHeight="0.5" arcWidth="5.0" fill="#666666" height="2.0" stroke="TRANSPARENT" strokeType="OUTSIDE" width="20.0" />
          </graphic>
       </Button>
-      <Label fx:id="dateLabel" layoutX="14.0" layoutY="14.0" text="00:00:00 - dd/MM/yyyy" textFill="WHITE">
+      <Label fx:id="dateLabel" layoutX="14.0" layoutY="14.0" textFill="WHITE">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>

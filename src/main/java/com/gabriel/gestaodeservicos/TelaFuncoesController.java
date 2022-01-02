@@ -77,6 +77,31 @@ public class TelaFuncoesController implements Initializable {
         stage.show();
     }
 
+    public void irParaRelatorio(ActionEvent e) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Relatorio.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+
+        RelatorioController rc = loader.getController();
+        rc.getText(labelEs.getText());
+
+        scene.setFill(Color.TRANSPARENT);
+
+        root.setOnMousePressed(mouseEvent -> {
+            xOffset = mouseEvent.getSceneX();
+            yOffset = mouseEvent.getSceneY();
+        });
+        root.setOnMouseDragged(mouseEvent -> {
+            stage.setX(mouseEvent.getScreenX() - xOffset);
+            stage.setY(mouseEvent.getScreenY() - yOffset);
+        });
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
